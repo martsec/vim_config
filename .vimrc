@@ -10,6 +10,9 @@ nnoremap z0 z=
 nnoremap <space>g zg
 nnoremap <space>c z=
 
+:command Pretty %!python -m json.tool
+:command Adoc asciidoctor @%
+
 "set backspace=indent,eol,start
 set history=1000
 set autoread
