@@ -71,6 +71,7 @@ Plug 'sheerun/vim-polyglot'
 Plug 'editorconfig/editorconfig-vim'
 " Spell check for vim
 Plug 'reedes/vim-lexical'
+Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
 " Initialize plugin system
 call plug#end()
 
