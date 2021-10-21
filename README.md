@@ -81,6 +81,9 @@ Example commands (NOTE: `<leader>` is currently `,` and `<CR>` is enter key)
   * `t` open in new tab
   * Select the desired directory, press `m` (NERDTree menu) and then a `a` to create new file. End it with `/` to create a directory instead
   * 
+* Async executions via `tpope/vim-dispatch`
+* Use `:Dispatch cmd` to run a non blocking window a commands
+* Then use `:Copen` to open it
 
 * Workspace ([vim-ctrlspace](https://awesomeopensource.com/project/yehuohan/vim-ctrlspace))
   * `Ctrl`+ `space bar` open menu (base)

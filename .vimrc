@@ -99,6 +99,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'preservim/tagbar' " File structure (classes, functiuons, methods)
     Plug 'habamax/vim-asciidoctor'
 
+    Plug 'tpope/vim-dispatch' " Async background tasks (for tests for example)
 " Initialize plugin system
 call plug#end()
 
@@ -433,8 +434,8 @@ fun! AsciidoctorMappings()
     "nnoremap <buffer> <leader>op :AsciidoctorOpenPDF<CR>
     "nnoremap <buffer> <leader>oh :AsciidoctorOpenHTML<CR>
     "nnoremap <buffer> <leader>ox :AsciidoctorOpenDOCX<CR>
-    nnoremap <buffer> <leader>ch :Asciidoctor2HTML<CR>
-    nnoremap <buffer> <leader>cp :Asciidoctor2PDF<CR>
+    nnoremap <buffer> <leader>ch :Dispatch :Asciidoctor2HTML<CR>
+    nnoremap <buffer> <leader>cp :Dispatch :Asciidoctor2PDF<CR>
     "nnoremap <buffer> <leader>cx :Asciidoctor2DOCX<CR>
     nnoremap <buffer> <leader>p :AsciidoctorPasteImage<CR>
     " :make will build pdfs
@@ -448,5 +449,5 @@ augroup asciidoctor
 augroup END
 
 augroup ON_ASCIIDOCTOR_SAVE | au!
-    au BufWritePost *.adoc :Asciidoctor2HTML
+    au BufWritePost *.adoc :Dispatch :Asciidoctor2HTML
 augroup end
