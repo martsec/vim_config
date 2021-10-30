@@ -85,6 +85,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'reedes/vim-lexical'
 	" Color scheme
 	Plug 'joshdick/onedark.vim'
+    Plug 'sonph/onehalf', { 'rtp': 'vim' }
 
     " IDE like features
     Plug 'preservim/nerdtree'
@@ -103,7 +104,20 @@ call plug#begin('~/.vim/plugged')
 " Initialize plugin system
 call plug#end()
 
-colorscheme onedark
+"colorscheme onedark
+syntax on
+set t_Co=256
+set cursorline
+colorscheme onehalfdark
+let g:airline_theme='onehalfdark'
+" lightline
+" " let g:lightline = { 'colorscheme': 'onehalfdark' }
+if exists('+termguicolors')
+  let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+  let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+  set termguicolors
+endif
+
 " air-line
 " let g:airline_powerline_fonts = 1
 if !exists('g:airline_symbols')
