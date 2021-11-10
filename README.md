@@ -120,6 +120,8 @@ Example commands (NOTE: `<leader>` is currently `,` and `<CR>` is enter key)
   * Compiles as HTML when saved
   * `<leader>ch` to  manually compile to html
   * `<leader>cp` to compile to pdf
+  * `<leader>b` to *bold* selected text (in visual mode)
+  * `<leader>i` to _italics_ selected text (in visual mode)
 
 
 Extra:
