@@ -43,6 +43,7 @@ set number
 "set mouse=a
 set background=dark
 set title
+set colorcolumn=80
 
 
 " Indentation options
