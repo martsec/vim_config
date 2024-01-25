@@ -54,12 +54,19 @@ sudo apt-get install -y asciidoctor default-jdk
 sudo gem install asciidoctor-pdf
 sudo gem install asciidoctor-diagram
 
+# Rust
+# https://dev.to/veer66/enable-rust-autocomplete-in-neovim-j3o
+mkdir .local/bin
+curl -L https://github.com/rust-analyzer/rust-analyzer/releases/latest/download/rust-analyzer-linux -o ~/.local/bin/rust-analyzer
+chmod +x ~/.local/bin/rust-analyzer
+
+
 
 vim +PlugInstall +q +q
 
 
 vim +'CocInstall coc-json coc-tsserver'
-vim +'CocInstall coc-pyright'
+vim +'CocInstall coc-pyright coc-rust-analyzer'
 ```
 
 

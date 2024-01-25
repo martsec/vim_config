@@ -3,4 +3,5 @@
   "python.linting.pylintEnabled": false,
   "python.linting.flake8Enabled": true,
   "python.linting.enabled": false
+  "rust-analyzer.server.path": "/home/marti/.local/bin/rust-analyzer"
 }

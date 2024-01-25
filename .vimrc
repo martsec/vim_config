@@ -332,6 +332,6 @@ augroup asciidoctor
     au BufEnter *.adoc,*.asciidoc call AsciidoctorMappings()
 augroup END
 
-augroup ON_ASCIIDOCTOR_SAVE | au!
-    au BufWritePost *.adoc :Dispatch :Asciidoctor2HTML
-augroup end
+"augroup ON_ASCIIDOCTOR_SAVE | au!
+"    au BufWritePost *.adoc :Dispatch :Asciidoctor2HTML
+"augroup end
