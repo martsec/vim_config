@@ -1,5 +1,8 @@
 # Vim configuration
 
+Recommended: Install the latest vim version via appImage executable
+https://github.com/vim/vim-appimage/releases
+
 Features:
 * File storage viewer (`nerdtree`)
 * Spell check for English in text documents (md, asciidoc, text...)
@@ -56,10 +59,7 @@ sudo gem install asciidoctor-diagram
 
 # Rust
 # https://dev.to/veer66/enable-rust-autocomplete-in-neovim-j3o
-mkdir .local/bin
-curl -L https://github.com/rust-analyzer/rust-analyzer/releases/latest/download/rust-analyzer-linux -o ~/.local/bin/rust-analyzer
-chmod +x ~/.local/bin/rust-analyzer
-
+rustup component add rust-analyzer
 
 
 vim +PlugInstall +q +q

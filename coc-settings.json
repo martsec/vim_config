@@ -1,7 +1,17 @@
 {
-  "pyright.organizeimports.provider": "isort",
-  "python.linting.pylintEnabled": false,
-  "python.linting.flake8Enabled": true,
-  "python.linting.enabled": false
-  "rust-analyzer.server.path": "/home/marti/.local/bin/rust-analyzer"
+    "workspace.ignoredFolders": [
+        "$HOME",
+        "$HOME/.cargo/**",
+        "$HOME/.rustup/**"
+    ],
+    "rust-analyzer.inlayHints.typeHints.enable": true,
+    "rust-analyzer.inlayHints.chainingHints.enable": true,
+    "rust-analyzer.inlayHints.parameterHints": true,
+    "rust-analyzer.inlayHints.expressionAdjustmentHints.mode": "postfix",
+
+
+    "pyright.organizeimports.provider": "isort",
+    "python.linting.pylintEnabled": false,
+    "python.linting.flake8Enabled": true,
+    "python.linting.enabled": false
 }

@@ -100,10 +100,17 @@ call plug#begin('~/.vim/plugged')
     Plug 'vim-ctrlspace/vim-ctrlspace' " workspace management
     Plug 'preservim/tagbar' " File structure (classes, functiuons, methods)
     Plug 'habamax/vim-asciidoctor'
+    Plug 'rust-lang/rust.vim'
 
     Plug 'tpope/vim-dispatch' " Async background tasks (for tests for example)
 " Initialize plugin system
 call plug#end()
+
+
+let g:rustfmt_autosave = 1
+let g:rustfmt_emit_files = 1
+let g:rustfmt_fail_silently = 0
+
 
 "colorscheme onedark
 syntax on
@@ -233,10 +240,12 @@ nnoremap <C-t> :call ToggleNERDTreeAndTagbar()<CR>
 """"""""""""""""""""""""""""
 let g:ale_linters = {
     \   'python': ['flake8'],
+    \   'rust': ['analyzer'],
     \}
 
 let g:ale_fixers = {
     \   'python': ['black', 'isort'],
+    \   'rust': ['rustfmt', 'trim_whitespace', 'remove_trailing_lines'],
     \}
 let g:ale_python_black_options = '--line-length 79'
 let g:ale_fix_on_save = 1
@@ -281,20 +290,20 @@ set shortmess+=c
 
 source ~/.vim/coc.vim
 
-let g:my_coc_file_types = ['c', 'cpp', 'h', 'java', 'scala', 'vim', 'sh', 'py']
+let g:my_coc_file_types = ['c', 'cpp', 'h', 'java', 'scala', 'vim', 'sh', 'py', 'rs']
 
-function! s:disable_coc_for_type()
-	if index(g:my_coc_file_types, &filetype) == -1
-        :silent! CocDisable
-    else
-        :silent! CocEnable
-	endif
-endfunction
-
-augroup CocGroup
-	autocmd!
-	autocmd BufNew,BufEnter * call s:disable_coc_for_type()
-augroup end
+"function! s:disable_coc_for_type()
+"	if index(g:my_coc_file_types, &filetype) == -1
+"        :silent! CocDisable
+"    else
+"        :silent! CocEnable
+"	endif
+"endfunction
+"
+"augroup CocGroup
+"	autocmd!
+"	autocmd BufNew,BufEnter * call s:disable_coc_for_type()
+"augroup end
 
 
 """""""""""""""""""""""""""""""
