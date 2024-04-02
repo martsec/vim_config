@@ -95,6 +95,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'vim-airline/vim-airline' " Best status line
 	Plug 'vim-airline/vim-airline-themes'
     Plug 'tpope/vim-fugitive' " use :G to execute any git command
+    Plug 'airblade/vim-gitgutter' " Which lines were modified in a file
     Plug 'neoclide/coc.nvim', {'branch': 'release'} " vs code like completition
 
     Plug 'vim-ctrlspace/vim-ctrlspace' " workspace management
@@ -118,13 +119,14 @@ set t_Co=256
 set cursorline
 colorscheme onehalfdark
 let g:airline_theme='onehalfdark'
-" lightline
-" " let g:lightline = { 'colorscheme': 'onehalfdark' }
 if exists('+termguicolors')
   let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
   let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
   set termguicolors
 endif
+" Better comments for dark env
+highlight Comment ctermfg=252 ctermbg=236 guifg=#919baa guibg=#282c34
+highlight CocInlayHint ctermfg=100 ctermbg=236 guifg=#958862 guibg=#282c34
 
 " air-line
 " let g:airline_powerline_fonts = 1

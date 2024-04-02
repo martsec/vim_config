@@ -8,6 +8,7 @@
     "rust-analyzer.inlayHints.chainingHints.enable": true,
     "rust-analyzer.inlayHints.parameterHints": true,
     "rust-analyzer.inlayHints.expressionAdjustmentHints.mode": "postfix",
+    "rust-analyzer.rustfmt.overrideCommand": ["leptosfmt", "--stdin", "--rustfmt"],
 
 
     "pyright.organizeimports.provider": "isort",

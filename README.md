@@ -79,6 +79,10 @@ Example commands (NOTE: `<leader>` is currently `,` and `<CR>` is enter key)
   * `gr` find references
   * `K` show documentation
   * `<leader>rn` rename
+  * `<leader>qf` quick fix 
+  * `<leader>re` refactor 
+  * `<leader>r` refactor selected 
+  * `<space>s` search in project
 * Comment
   * `gcc` toggle line comment (normal mode)
   * `gc` toggle comment (visual mode)
