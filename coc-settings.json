@@ -1,4 +1,6 @@
 {
+    "coc.preferences.formatOnSaveFiletypes": ["rust", "python"],
+
     "workspace.ignoredFolders": [
         "$HOME",
         "$HOME/.cargo/**",
