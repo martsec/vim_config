@@ -40,7 +40,8 @@ set undodir=$HOME/.vim/undodir
 " User Interface Options
 set wildmenu
 set number
-"set mouse=a
+set mouse=a
+
 set background=dark
 set title
 set colorcolumn=80
@@ -97,6 +98,8 @@ call plug#begin('~/.vim/plugged')
     Plug 'tpope/vim-fugitive' " use :G to execute any git command
     Plug 'airblade/vim-gitgutter' " Which lines were modified in a file
     Plug 'neoclide/coc.nvim', {'branch': 'release'} " vs code like completition
+     " AI companion
+    "Plug 'Exafunction/codeium.vim', { 'branch': 'main' }
 
     Plug 'vim-ctrlspace/vim-ctrlspace' " workspace management
     Plug 'preservim/tagbar' " File structure (classes, functiuons, methods)
@@ -106,6 +109,14 @@ call plug#begin('~/.vim/plugged')
     Plug 'tpope/vim-dispatch' " Async background tasks (for tests for example)
 " Initialize plugin system
 call plug#end()
+
+" Codeium AI companion
+"set statusline+=%3{codeium#GetStatusString()}
+let g:codeium_disable_bindings = 1
+imap <script><silent><nowait><expr> <C-g> codeium#Accept()
+imap <C-;>   <Cmd>call codeium#CycleCompletions(1)<CR>
+imap <C-,>   <Cmd>call codeium#CycleCompletions(-1)<CR>
+imap <C-x>   <Cmd>call codeium#Clear()<CR>
 
 
 let g:rustfmt_autosave = 1
@@ -236,23 +247,17 @@ function! ToggleNERDTreeAndTagbar()
 endfunction
 nnoremap <C-t> :call ToggleNERDTreeAndTagbar()<CR>
 
+" To avoid issues when closing
+" See https://github.com/preservim/tagbar/issues/869
+autocmd QuitPre * qall
+
+
 
 """"""""""""""""""""""""""""
 " Linting
 """"""""""""""""""""""""""""
-let g:ale_linters = {
-    \   'python': ['flake8'],
-    \   'rust': ['analyzer'],
-    \}
-
-let g:ale_fixers = {
-    \   'python': ['black', 'isort'],
-    \   'rust': ['rustfmt', 'trim_whitespace', 'remove_trailing_lines'],
-    \}
-let g:ale_python_black_options = '--line-length 79'
-let g:ale_fix_on_save = 1
-let g:ale_completion_enabled = 0
-
+" See coc.vim 
+"
 """"""""""""""""""""""""""""
 " Git
 """"""""""""""""""""""""""""

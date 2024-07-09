@@ -8,11 +8,25 @@
     "rust-analyzer.inlayHints.chainingHints.enable": true,
     "rust-analyzer.inlayHints.parameterHints": true,
     "rust-analyzer.inlayHints.expressionAdjustmentHints.mode": "postfix",
-    "rust-analyzer.rustfmt.overrideCommand": ["leptosfmt", "--stdin", "--rustfmt"],
+    "rust-analyzer.rustfmt.overrideCommand": [
+        "leptosfmt",
+        "--stdin",
+        "--rustfmt"
+    ],
+    "rust-analyzer.checkOnSave.features": "all",
+    "rust-analyzer.cargo.features": "all",
+    "rust-analyzer.check.features": "all",
+    "rust-analyzer.check.overrideCommand": [
+        "cargo",
+        "clippy",
+        "--message-format=json"
+    ],
 
-
-    "pyright.organizeimports.provider": "isort",
-    "python.linting.pylintEnabled": false,
-    "python.linting.flake8Enabled": true,
-    "python.linting.enabled": false
+    "ruff.nativeServer": true,
+    "ruff.autoFixOnSave": true,
+    "ruff.disableDocumentFormatting": true,
+    "python.formatting.provider": "ruff",
+    "python.organizeimports.provider": "ruff",
+    "python.linting.provider": "ruff",
+    "python.linting.mypyEnabled": false,
 }

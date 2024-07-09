@@ -158,4 +158,8 @@ nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 
 
-
+" Format python file on save
+aug python
+  au!
+  au BufWrite *.py call CocAction('format')
+aug END

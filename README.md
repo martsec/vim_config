@@ -66,8 +66,13 @@ vim +PlugInstall +q +q
 
 
 vim +'CocInstall coc-json coc-tsserver'
-vim +'CocInstall coc-pyright coc-rust-analyzer'
+vim +'CocInstall @yaegassy/coc-ruff coc-rust-analyzer'
+vim +'CocCommand ruff.builtin.installServer'
 ```
+
+> [!NOTE]
+> A previous version used `coc-pyright` but I changed it for the modern ruff
+
 
 
 If you are using WSL please install all powerline fonts on windows and select it as the terminal font. See https://github.com/vim-airline/vim-airline/wiki/Dummies-Guide-to-the-status-bar-symbols-(Powerline-fonts)-on-Fedora,-Ubuntu-and-Windows#handling-the-delicate-flower-of-windows and https://stackoverflow.com/a/63148518/5375579
