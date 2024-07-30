@@ -62,20 +62,25 @@ sudo gem install asciidoctor-diagram
 rustup component add rust-analyzer
 
 
+# If you want to use nvim, it's the moment to follow
+# https://neovim.io/doc/user/nvim.html#nvim-from-vim 
+
+
 vim +PlugInstall +q +q
 
 
 vim +'CocInstall coc-json coc-tsserver'
-vim +'CocInstall @yaegassy/coc-ruff coc-rust-analyzer'
+vim +'CocInstall @yaegassy/coc-ruff coc-rust-analyzer coc-pyright'
 vim +'CocCommand ruff.builtin.installServer'
 ```
 
-> [!NOTE]
-> A previous version used `coc-pyright` but I changed it for the modern ruff
 
-
+If you are using OS X, install vim and/or neovim from homebrew. 
+If using neovim, check out their documentation on how to support `.vimrc`
 
 If you are using WSL please install all powerline fonts on windows and select it as the terminal font. See https://github.com/vim-airline/vim-airline/wiki/Dummies-Guide-to-the-status-bar-symbols-(Powerline-fonts)-on-Fedora,-Ubuntu-and-Windows#handling-the-delicate-flower-of-windows and https://stackoverflow.com/a/63148518/5375579
+
+If you are using mac, deactivate Keyboard -> Keyboard Shortcut -> Input Sources "select the previous input source" See https://github.com/AstroNvim/AstroNvim/issues/601
 
 Example commands (NOTE: `<leader>` is currently `,` and `<CR>` is enter key)
 
@@ -96,10 +101,14 @@ Example commands (NOTE: `<leader>` is currently `,` and `<CR>` is enter key)
   * `ì` open file in split
   * `t` open in new tab
   * Select the desired directory, press `m` (NERDTree menu) and then a `a` to create new file. End it with `/` to create a directory instead
-  * 
+* Folds
+  * We'll autofold everything. 
+  * `zM` to fold everything
+  * `zR`  to unfold
+  * `<space>` or `za` to toggle open and close
 * Async executions via `tpope/vim-dispatch`
-* Use `:Dispatch cmd` to run a non blocking window a commands
-* Then use `:Copen` to open it
+  * Use `:Dispatch cmd` to run a non blocking window a commands
+  * Then use `:Copen` to open it
 
 * Workspace ([vim-ctrlspace](https://awesomeopensource.com/project/yehuohan/vim-ctrlspace))
   * `Ctrl`+ `space bar` open menu (base)
@@ -112,7 +121,12 @@ Example commands (NOTE: `<leader>` is currently `,` and `<CR>` is enter key)
   * `:bd` close current buffer
   * `:bd#` close buffer #
   * `:vs|b#` or `:sp|b#` open buffer in split window
-  *
+  
+* Git (using plugin vim-gitgutter)
+  * `:Git` for direct git commands
+  * Jump between hunks (changes) `[c` and `]c` 
+  * Stage hunk `,hs` unstage `,hu`
+  * preview the hunk (git diff style) `,hp`
 
 * Window (split) management 
   * `Ctrl+H` left

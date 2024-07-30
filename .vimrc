@@ -87,7 +87,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'reedes/vim-lexical'
 	" Color scheme
 	Plug 'joshdick/onedark.vim'
-    Plug 'sonph/onehalf', { 'rtp': 'vim' }
+    Plug 'sonph/onehalf', { 'rtp': 'vim/' }
 
     " IDE like features
     Plug 'preservim/nerdtree'
@@ -160,6 +160,9 @@ let g:airline_symbols.linenr = ''
 let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
 
 " Set ctrlspace settings
+"    needed for nvim
+let g:CtrlSpaceDefaultMappingKey = "<C-space> "
+nnoremap <silent><C-p> :CtrlSpace O<CR>
 " Remove it if it does not work for you
 "if has('win32')
 "    let s:vimfiles = '~/vimfiles'
@@ -205,7 +208,7 @@ nnoremap <leader>n :NERDTreeFocus<CR>
 nnoremap <C-n> :NERDTree<CR>
 nnoremap <C-f> :NERDTreeFind<CR>
 " Start NERDTree and put the cursor back in the other window.
-"autocmd VimEnter * NERDTree | wincmd p
+autocmd VimEnter * NERDTreeFind | wincmd p
 
 " Exit Vim if NERDTree is the only window remaining in the only tab.
 autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
@@ -225,14 +228,14 @@ function! ToggleNERDTreeAndTagbar()
 
     " Perform the appropriate action
     if nerdtree_open && tagbar_open
-        NERDTreeClose
+        NERDTreeToggle "NERDTreeClose
         TagbarClose
     elseif nerdtree_open
         TagbarOpen
     elseif tagbar_open
-        NERDTree
+        NERDTreeToggle "NERDTree
     else
-        NERDTree
+        NERDTreeToggle "NERDTree
         TagbarOpen
     endif
 
@@ -246,10 +249,11 @@ function! ToggleNERDTreeAndTagbar()
     endfor
 endfunction
 nnoremap <C-t> :call ToggleNERDTreeAndTagbar()<CR>
+nnoremap <leader>t :call ToggleNERDTreeAndTagbar()<CR>
 
 " To avoid issues when closing
 " See https://github.com/preservim/tagbar/issues/869
-autocmd QuitPre * qall
+"autocmd QuitPre * qall
 
 
 
@@ -261,7 +265,7 @@ autocmd QuitPre * qall
 """"""""""""""""""""""""""""
 " Git
 """"""""""""""""""""""""""""
-" \gd for git diff
+" ,gd for git diff
 
 function GitDiff()
     :silent write
@@ -277,6 +281,13 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#buffer_nr_show = 1
 
 :call tagbar#autoopen(0)
+
+
+" Fold for long files
+set foldmethod=indent
+set foldnestmax=2
+nnoremap <space> za
+vnoremap <space> zf
 
 
 """""""""""""""""""""""""""""""""""""""""
