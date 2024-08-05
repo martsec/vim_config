@@ -5,12 +5,12 @@ let mapleader = ","
 
 "Mappings
 "For spellcheck (go to next or previous)
-nnoremap <space>s ]s 
-nnoremap <space>S [s
+"nnoremap <spaces>s ]s 
+"nnoremap <space>S [s
 "For spellcheck correction
 nnoremap z0 z=
-nnoremap <space>g zg
-nnoremap <space>c z=
+"nnoremap <space>g zg
+"nnoremap <space>c z=
 
 """""""""""""""""""""""
 " Splits and tabs
