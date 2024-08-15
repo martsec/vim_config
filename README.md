@@ -1,4 +1,38 @@
-# Vim configuration
+# Setup 
+
+* zsh + p10k for flavor + nvim
+
+For linux: 
+
+1. Install first `sudo apt install zsh`
+2. Make it your default shell `chsh -s $(which zsh)`
+
+```bash
+() {
+
+  command curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
+  command chmod u+x nvim.appimage
+  command mkdir -p /opt/nvim
+  command mv nvim.appimage /opt/nvim/nvim
+
+  emulate -L zsh -o xtrace -o err_return
+  ZDOTDIR=/no/such/dir command zsh -ic '[[ $ZDOTDIR == /no/such/dir ]]'
+  command git clone -- https://github.com/ohmyzsh/ohmyzsh.git ~/.oh-my-zsh
+  command git clone --depth=1 -- https://github.com/romkatv/powerlevel10k.git ~/.oh-my-zsh/custom/themes/powerlevel10k
+  command sed -- 's|robbyrussell|powerlevel10k/powerlevel10k|' ~/.oh-my-zsh/templates/zshrc.zsh-template >~/.zshrc
+  command echo '[[ ! -f ~/.vim/.p10k.zsh ]] || source ~/.vim/.p10k.zsh' >> ~/.zshrc
+  command echo '[[ ! -f ~/.vim/.aliases ]] || source ~/.vim/.aliases' >> ~/.zshrc
+
+
+
+  command ln -s ~/.vim/.vimrc ~/.vimrc
+
+  ZDOTDIR=~ exec zsh -i
+}
+
+```
+
+## Vim configuration
 
 Recommended: Install the latest vim version via appImage executable
 https://github.com/vim/vim-appimage/releases
@@ -16,7 +50,7 @@ Features:
   * Git branch showing and use `:G` to execute git commands (`fugitive`)
   * Possibility to set vim configurations at project level using `.editorconfig` files
 
-# Vim config install
+### config install
 
 ```
 git clone https://github.com/martsec/vim_config.git ~/.vim

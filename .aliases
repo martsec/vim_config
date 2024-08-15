@@ -1,0 +1,10 @@
+
+export PATH="$PATH:/opt/nvim-linux64/bin"
+alias vim=nvim 
+alias vi=nvim
+
+alias hals="ls -hals"
+
+alias ..="cd ../../"
+alias ...="cd ../../../"
+
