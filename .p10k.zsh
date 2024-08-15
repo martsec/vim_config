@@ -354,8 +354,17 @@
   # parameter. For example, if POWERLEVEL9K_DIR_WORK_NOT_WRITABLE_FOREGROUND is not set, it falls
   # back to POWERLEVEL9K_DIR_FOREGROUND.
   #
-  typeset -g POWERLEVEL9K_DIR_CLASSES=()
+  typeset -g POWERLEVEL9K_DIR_CLASSES=(
+     '~/plaigames(|/*)'  PLAI     ''
+     '~/plaigames(|/*)'  PLAI     ''
+     '~/poc(|/*)'        POC      ''
+     '~/data(|/*)'       data      ''
+     '*'                 DEFAULT  ''
+  )
 
+  typeset -g POWERLEVEL9K_DIR_PLAI_VISUAL_IDENTIFIER_EXPANSION='🃏'
+  typeset -g POWERLEVEL9K_DIR_POC_VISUAL_IDENTIFIER_EXPANSION='🧪'
+  typeset -g POWERLEVEL9K_DIR_DATA_VISUAL_IDENTIFIER_EXPANSION='💿'
   # Custom prefix.
   # typeset -g POWERLEVEL9K_DIR_PREFIX='in '
 
